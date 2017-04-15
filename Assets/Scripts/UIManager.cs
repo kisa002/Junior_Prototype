@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-	public Player player;
+	private Player player;
 
 	public Text hpText;
 	public Text ammoText;
-	public Text kmText;
+	public Text scoreText;
 
-	//public Text scoreText; 
+    //public Text scoreText; 
 
 	void Start () {
-		
+        player = FindObjectOfType<Player>();
 	}
 
 	void Update () {
-		//hpText.text = AllData.GetInstance().GetPlayerHp() + "%";
+        hpText.text = player.playerHp + "%";
 		ammoText.text = player.remainingMagazine + " / " + player.fullMagzine;
 
-		//Debug.LogError (hpText.text);
+		scoreText.text = AllData.GetInstance ().GetScore().ToString();
 	}
 }
