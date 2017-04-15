@@ -21,6 +21,7 @@ public class Player : MonoBehaviour {
 
     public int fullMagzine = 150;
 	public int remainingMagazine = 30;
+    public int playerHp = 100;
 
     private CharacterController cc;
     
@@ -112,6 +113,12 @@ public class Player : MonoBehaviour {
 
         remainingMagazine--;
         Debug.Log("잔여 탄창수 : " + remainingMagazine + " 전체 탄창수 : " + fullMagzine);
+    }
+
+    public void PlayerAttacked(int dmg)
+    {
+        playerHp -= dmg;
+        Debug.Log("Player get Dmg");
     }
 
 }

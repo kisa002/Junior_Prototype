@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AllData : MonoBehaviour {
 
-    private int playerHp;
+    private static AllData instance;
+    
     private int score;
     private int enemyNum;
 
-    private static AllData instance;
     public static AllData GetInstance()
     {
         if(instance == null)
@@ -21,25 +21,6 @@ public class AllData : MonoBehaviour {
             }
         }
         return instance;
-    }
-
-    public int GetPlayerHp()
-    {
-        return playerHp;
-    }
-    public void SetPlayerHp(int playerHp)
-    {
-        this.playerHp = playerHp;
-    }
-    public void AddPlayerHp(int playerHp)
-    {
-        this.playerHp += playerHp;
-        SetPlayerHp(this.playerHp);
-    }
-    public void SubPlayerHp(int playerHp)
-    {
-        this.playerHp -= playerHp;
-        SetPlayerHp(this.playerHp);
     }
 
     public int GetScore()
