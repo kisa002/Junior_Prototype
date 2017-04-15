@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     public int fullMagzine = 150;
 	public int remainingMagazine = 30;
     public int playerHp = 100;
+    public int score = 0;
 
     private CharacterController cc;
     
@@ -104,7 +105,11 @@ public class Player : MonoBehaviour {
                 Debug.DrawRay(Camera.main.transform.position, Input.mousePosition, Color.red);
 
                 ES = hitObject.GetComponent<EnemyScript>();
-
+                
+                if(ES.hp <= 0)
+                {
+                    ScoreUp(30);
+                }
                 ES.hp--;
 
                 Debug.Log("남은 적 체력 : " + ES.hp);
@@ -119,6 +124,11 @@ public class Player : MonoBehaviour {
     {
         playerHp -= dmg;
         Debug.Log("Player get Dmg");
+    }
+
+    public void ScoreUp(int score)
+    {
+        this.score += score;
     }
 
 }

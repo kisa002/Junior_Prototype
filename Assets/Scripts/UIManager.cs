@@ -21,6 +21,6 @@ public class UIManager : MonoBehaviour {
         hpText.text = player.playerHp + "%";
 		ammoText.text = player.remainingMagazine + " / " + player.fullMagzine;
 
-		scoreText.text = AllData.GetInstance ().GetScore().ToString();
+        scoreText.text = player.score + "점";
 	}
 }
